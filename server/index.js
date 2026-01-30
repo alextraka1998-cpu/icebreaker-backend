@@ -1,23 +1,40 @@
 import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Fix ES Modules paths
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+app.use(cors({
+  origin: [
+    "https://icebreakerparty.com",
+    "https://www.icebreakerparty.com"
+  ],
+  credentials: true
+}));
 
-// PUBLIC is one level above /server
-const publicPath = path.resolve(__dirname, "../public");
+app.use(express.json());
 
-// Serve frontend
-app.use(express.static(publicPath));
+app.post("/api/login", (req, res) => {
+  const { username, pin } = req.body;
 
-// Catch-all for SPA
-app.get("*", (req, res) => {
-  res.sendFile(path.join(publicPath, "index.html"));
+  console.log("LOGIN ATTEMPT:", username, pin);
+
+  if (!username || !pin) {
+    return res.status(400).json({ error: "Missing data" });
+  }
+
+  if (!/^\d{4}$/.test(pin)) {
+    return res.status(401).json({ error: "Invalid PIN" });
+  }
+
+  return res.json({
+    success: true,
+    user: { username }
+  });
+});
+
+app.get("/api/ping", (req, res) => {
+  res.json({ ok: true });
 });
 
 app.listen(PORT, () => {
