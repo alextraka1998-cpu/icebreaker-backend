@@ -1,0 +1,66 @@
+{
+  "users": {
+    "ainara": {
+      "id": "ainara",
+      "name": "Ainara",
+      "lat": 38.01,
+      "lng": -0.59,
+      "lastSeen": 1767979134062
+    },
+    "alex": {
+      "id": "alex",
+      "name": "alex",
+      "lat": 38.01,
+      "lng": -0.59,
+      "lastSeen": 1767983982516
+    }
+  },
+  "requests": [
+    {
+      "from": "alex",
+      "to": "ainara",
+      "message": "Ey Ainara",
+      "createdAt": 1767978951051,
+      "status": "accepted"
+    },
+    {
+      "from": "alex",
+      "to": "ainara",
+      "status": "accepted"
+    },
+    {
+      "from": "alex",
+      "to": "ainara",
+      "status": "accepted"
+    },
+    {
+      "from": "alex",
+      "to": "ainara",
+      "status": "accepted",
+      "ts": 1767994637565
+    },
+    {
+      "from": "alex",
+      "to": "ainara",
+      "status": "accepted",
+      "ts": 1767995495724
+    }
+  ],
+  "matches": [
+    "ainara|alex",
+    {
+      "a": "alex",
+      "b": "ainara",
+      "ts": 1767994641439
+    },
+    {
+      "a": "alex",
+      "b": "ainara",
+      "ts": 1767995498964
+    }
+  ],
+  "messages": [],
+  "chats": {
+    "ainaraalex": []
+  }
+}
